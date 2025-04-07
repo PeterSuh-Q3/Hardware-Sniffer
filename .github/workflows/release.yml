@@ -63,8 +63,7 @@ jobs:
       with:
         tag_name: ${{ env.version }}
         files: |
-          ./dist/Hardware-Sniffer.exe
-          ./dist/Hardware-Sniffer-CLI.exe
+          ./dist/*.exe
         name: ${{ env.version }}
         body: |
           ## **Changelog**
