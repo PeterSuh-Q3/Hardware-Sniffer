@@ -45,7 +45,7 @@ jobs:
         pyinstaller --onefile `
         --add-data "Scripts/datasets/usb.ids;Scripts/datasets" `
         --add-data "Scripts/datasets/pci.ids;Scripts/datasets" `
-        HardwareSniffer.py
+        Hardware-Sniffer.py
 
     - name: Generate Version Number
       id: version
