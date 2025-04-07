@@ -33,19 +33,19 @@ jobs:
         python -m pip install --upgrade pip
         pip install pyinstaller wmi
 
-    - name: Build Executable GUI
-      run: |
-        pyinstaller --onefile `
-        --add-data "Scripts/datasets/usb.ids;Scripts/datasets" `
-        --add-data "Scripts/datasets/pci.ids;Scripts/datasets" `
-        HardwareSniffer.py
-
     - name: Build Executable CLI
       run: |
         pyinstaller --onefile `
         --add-data "Scripts/datasets/usb.ids;Scripts/datasets" `
         --add-data "Scripts/datasets/pci.ids;Scripts/datasets" `
         Hardware-Sniffer-CLI.py
+
+    - name: Build Executable GUI
+      run: |
+        pyinstaller --onefile `
+        --add-data "Scripts/datasets/usb.ids;Scripts/datasets" `
+        --add-data "Scripts/datasets/pci.ids;Scripts/datasets" `
+        HardwareSniffer.py
 
     - name: Generate Version Number
       id: version
@@ -56,6 +56,7 @@ jobs:
         $patch = $run_number % 10
         $version = "$major.$minor.$patch"
         echo "version=$version" >> $env:GITHUB_ENV
+        ls -l ./dist
 
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v1
