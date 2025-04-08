@@ -41,7 +41,7 @@ class HardwareSniffer:
         print("")
         print("Please wait for download acpidump...")
         
-        acpidump_download_link = "https://github.com/PeterSuh-Q3/Hardware-Sniffer/raw/refs/heads/main/acpidump.exe" #self.get_latest_acpidump()
+        acpidump_download_link = "https://github.com/acpica/acpica/releases/download/R2024_12_12/acpidump.exe" #self.get_latest_acpidump()
         if not acpidump_download_link: 
             raise Exception("Could not find download URL for acpidump.exe.")
         
